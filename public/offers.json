@@ -1,0 +1,241 @@
+[
+    {
+        "title": "kajak gdansk",
+        "id": 1,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "Gdansk",
+            "river": "motlawa",
+            "postalCode": "80-747",
+            "street": "Kamienna Grobla",
+            "streetNumber": "2",
+            "coordinates": [54.343922, 18.659500]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "description": "blebelebelblelbe"
+    },
+
+    {
+        "title": "kajak gdansk",
+        "id": 2,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "gdansk",
+            "river": "motlawa",
+            "postalCode": "80-863",
+            "street": "Dokowa",
+            "streetNumber": "1",
+            "coordinates": [54.362640, 18.651819]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "description": "blebelebelblelbe"
+    },
+
+    {
+        "title": "kajak gdansk",
+        "id": 3,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "Sopot",
+            "river": "motlawa",
+            "postalCode": "81-824",
+            "street": "Parkowa",
+            "streetNumber": "64",
+            "coordinates": [54.439350, 18.574190]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/1522344/pexels-photo-1522344.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "description": "blebelebelblelbe"
+    },
+
+    {
+        "title": "kajak gdansk",
+        "id": 4,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "gdansk",
+            "river": "motlawa",
+            "postalCode": "80-822",
+            "street": "Żabi Kruk",
+            "streetNumber": "15",
+            "coordinates": [54.342449, 18.648230]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/2422463/pexels-photo-2422463.jpeg?w=4&h=4&fit=crop",
+        "description": "blebelebelblelbe"
+    },
+
+    {
+        "title": "kajak gdansk",
+        "id": 5,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "gdansk",
+            "river": "motlawa",
+            "postalCode": "80-246",
+            "street": "Władysława Pniewskiego",
+            "streetNumber": "7/1",
+            "coordinates": [54.376820, 18.605770]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/1497587/pexels-photo-1497587.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "description": "blebelebelblelbe"
+    },
+
+    {
+        "title": "kajak gdansk",
+        "id": 6,
+        "offer": [
+            {
+                "type": "kajak jednoosoby",
+                "numberOfPeople": 1,
+                "price": 15
+            },
+            {
+                "type": "kajak dwusobowy",
+                "numberOfPeople": 2,
+                "price": 25
+            },
+            {
+                "type": "kajak group",
+                "numberOfPeople": 10,
+                "price": 150
+            },
+            {
+                "type": "rowerek 4 osobowy",
+                "numberOfPeople": 4,
+                "price": 75
+            }
+        ],
+      
+        "level": "easy",
+        "location": {
+            "city": "gdansk",
+            "river": "motlawa",
+            "postalCode": "80-561",
+            "street": "Pokładowa ",
+            "streetNumber": "9",
+            "coordinates": [54.394680, 18.685320]
+
+        },
+        "imageUrl": "https://images.pexels.com/photos/40859/kayaking-kayaker-kayak-water-sports-40859.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "description": "blebelebelblelbe"
+    }
+]

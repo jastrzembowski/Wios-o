@@ -1,0 +1,74 @@
+.background-coloring-div{
+    background-color: white;
+    box-shadow: 0px 2px silver;
+}
+
+.offers-navigation-bar {
+    display: grid;
+    z-index:  10;
+    grid-template-areas:
+    'filterInput slider sortByName sortByLevel';
+    align-items: center;
+    justify-content: space-around;
+    background: white;
+    max-width: 1600px;
+    margin: 0 auto;
+    border: none;
+}
+
+.offers-navigation-bar-filterByName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: "filterInput";
+} 
+
+.offers-dashboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1070px) {
+    .offers-dashboard {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .offers-navigation-bar {
+        grid-template-areas:
+        "filterInput slider"
+        "sortByName sortByLevel";
+        justify-self: center;
+    }
+
+    .range-slider{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 825px) {
+    .offers-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .offers-dashboard {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+    }
+    .offers-navigation-bar {
+        grid-template-areas:
+        'filterInput filterInput' 
+        'slider slider '  
+        'sortByName sortByLevel';
+        grid-gap: 10px;
+        margin-top: -15px;
+    }
+}
