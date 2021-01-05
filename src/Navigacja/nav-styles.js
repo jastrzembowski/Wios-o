@@ -42,7 +42,7 @@ export const navStyles = makeStyles((theme) => ({
       }),
     },
     prawo:{
-      color: "red"
+      color: "black"
     },
     drawerClose: {
       transition: theme.transitions.create('width', {
@@ -81,8 +81,8 @@ export const navStyles = makeStyles((theme) => ({
       margin: '26px 0 ',
     },
     newButton : {
-      position : "absolute",
-      right : " 10px ",
+      // position : "absolute",
+      // right : " 10px ",
       backgroundColor: "rgb(255,255,255)"
     },
     loginButton: {

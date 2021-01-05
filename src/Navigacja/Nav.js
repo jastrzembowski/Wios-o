@@ -23,12 +23,18 @@ import AddIcon from "@material-ui/icons/Add";
 import Popup from "../AddNewOfferForm/Popup";
 import AddNewOfferForm from "../AddNewOfferForm/AddNewOfferForm";
 import Button from "../AddNewOfferForm/Button";
+import Signup from "../LoginRegister/Signup";
+import Login from "../LoginRegister/Login";
+import Logout from "../LoginRegister/Logout";
+import { useAuth } from "../contexts/AuthContext";
 
 function Nav({ children }) {
   const classes = navStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [openPopup, setOpenPopup] = React.useState(false);
+  const { currentUser } = useAuth();
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -37,81 +43,95 @@ function Nav({ children }) {
     setOpen(false);
   };
 
-
-
   return (
     <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar
-            style={{
-              backgroundColor: "rgb(0, 0, 0)",
-            }}
-          >
-            <IconButton
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-
-            <Button
-              text="Dodaj ofertę"
-              color="secondary"
-              variant="contained"
-              startIcon={<AddIcon />}
-              className={classes.newButton}
-              onClick={() => setOpenPopup(true)}
-            />
-
-   
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }),
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar
+          style={{
+            backgroundColor: "rgb(0, 0, 0)",
           }}
         >
-          <div className={classes.toolbar}>
-            <img className={classes.logo} src={LogoWioslo} alt={"Wioło"} />
-            <IconButton onClick={handleDrawerClose} className={classes.prawo}>
-              {theme.direction === "rtl" ? (
-                <ChevronRightIcon className={{ prawo: classes.prawo }} />
-              ) : (
-                <ChevronLeftIcon className={classes.prawo} />
-              )}
-            </IconButton>
+          <IconButton
+            aria-label="open drawer"
+            style={{ color: "white" }}
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon />
+          </IconButton>
+          <div
+            style={{
+              display: "flex",
+              width: "100vw",
+              justifyContent: "flex-end",
+            }}
+          >
+            {!currentUser ? (
+              <>
+                <Signup />
+                <Login />
+              </>
+            ) : (
+              <>
+                <Button
+                  text="Dodaj ofertę"
+                  color="secondary"
+                  variant="contained"
+                  startIcon={<AddIcon />}
+                  className={classes.newButton}
+                  onClick={() => setOpenPopup(true)}
+                />
+                <Logout />
+              </>
+            )}
           </div>
-          <List className={classes.backgraundMenu}>
-            <ListItem
-              button
-              component={Link}
-              to="/home"
-              className={classes.menuTextStyle}
-            >
-              <ListItemIcon className={classes.menuTextStyle}>
-                <HomeIcon className={classes.menuTextStyle} />
-              </ListItemIcon>
-              <ListItemText primary={"Home"} />
-            </ListItem>
-            {/*             
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <img className={classes.logo} src={LogoWioslo} alt={"Wiosło"} />
+          <IconButton onClick={handleDrawerClose} className={classes.prawo}>
+            {theme.direction === "rtl" ? (
+              <ChevronRightIcon className={{ prawo: classes.prawo }} />
+            ) : (
+              <ChevronLeftIcon className={classes.prawo} />
+            )}
+          </IconButton>
+        </div>
+        <List className={classes.backgraundMenu}>
+          <ListItem
+            button
+            component={Link}
+            to="/home"
+            className={classes.menuTextStyle}
+          >
+            <ListItemIcon className={classes.menuTextStyle}>
+              <HomeIcon className={classes.menuTextStyle} />
+            </ListItemIcon>
+            <ListItemText primary={"Home"} />
+          </ListItem>
+          {/*             
             <ListItem button component = {Link} to = '/ulubione' className={classes.menuTextStyle}>
               <ListItemIcon className={classes.menuTextStyle}>
                 <FavoriteIcon className={classes.menuTextStyle}/>
@@ -119,35 +139,35 @@ function Nav({ children }) {
               <ListItemText primary={'Ulubione'} />
               </ListItem> */}
 
-            <ListItem
-              button
-              component={Link}
-              to="/kayak"
-              className={classes.menuTextStyle}
-            >
-              <ListItemIcon className={classes.menuTextStyle}>
-                <RowingIcon className={classes.menuTextStyle} />
-              </ListItemIcon>
-              <ListItemText primary={"Oferty"} />
-            </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/kayak"
+            className={classes.menuTextStyle}
+          >
+            <ListItemIcon className={classes.menuTextStyle}>
+              <RowingIcon className={classes.menuTextStyle} />
+            </ListItemIcon>
+            <ListItemText primary={"Oferty"} />
+          </ListItem>
 
-            <ListItem
-              button
-              component={Link}
-              to="/mapa"
-              className={classes.menuTextStyle}
-            >
-              <ListItemIcon className={classes.menuTextStyle}>
-                <MapIcon className={classes.menuTextStyle} />
-              </ListItemIcon>
-              <ListItemText primary={"Mapa"} />
-            </ListItem>
-          </List>
-        </Drawer>
-        {children}
-        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
-          <AddNewOfferForm openPopup={openPopup} setOpenPopup={setOpenPopup} />
-        </Popup>
+          <ListItem
+            button
+            component={Link}
+            to="/mapa"
+            className={classes.menuTextStyle}
+          >
+            <ListItemIcon className={classes.menuTextStyle}>
+              <MapIcon className={classes.menuTextStyle} />
+            </ListItemIcon>
+            <ListItemText primary={"Mapa"} />
+          </ListItem>
+        </List>
+      </Drawer>
+      {children}
+      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+        <AddNewOfferForm openPopup={openPopup} setOpenPopup={setOpenPopup} />
+      </Popup>
     </div>
   );
 }

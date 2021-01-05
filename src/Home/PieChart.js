@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Bar, Line, Pie } from "react-chartjs-2";
-const DATABASE_URL = "https://dancing-app-77d2a.firebaseio.com";
+const DATABASE_URL = "https://wioslo-default-rtdb.firebaseio.com/";
 
 export default class PieChart extends Component {
   state = {

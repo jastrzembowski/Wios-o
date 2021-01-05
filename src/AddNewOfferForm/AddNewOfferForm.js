@@ -12,7 +12,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 import Button from "./Button";
 import { CodeSharp, FontDownload, ImportantDevices } from "@material-ui/icons";
-const DATABASE_URL = "https://dancing-app-77d2a.firebaseio.com";
+const DATABASE_URL = "https://wioslo-default-rtdb.firebaseio.com/";
 
 export default class AddNewOfferForm extends React.Component {
   constructor(props) {

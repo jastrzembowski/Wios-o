@@ -3,7 +3,7 @@ import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import markerIcon from "../img/location2.png";
 import RezervationForm from "../Forms/RezervationForm";
 
-const DATABASE_URL = 'https://dancing-app-77d2a.firebaseio.com'
+const DATABASE_URL = 'https://wioslo-default-rtdb.firebaseio.com/'
 
 class Map extends React.Component {
 

@@ -1,14 +1,14 @@
-import firebase from "firebase"
+import firebase from "firebase/app"
 import "firebase/auth"
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyBRyQhSeTiXAi8jGeDfC9Bi-PN5ePLxeWc",
-    authDomain: "dancing-app-77d2a.firebaseapp.com",
-    databaseURL: "https://dancing-app-77d2a.firebaseio.com",
-    projectId: "dancing-app-77d2a",
-    storageBucket: "dancing-app-77d2a.appspot.com",
-    messagingSenderId: "791564787488",
-    appId: "1:791564787488:web:7255525d09890000448145"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
   })
 
 export const auth = app.auth()
