@@ -13,7 +13,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import LogoWioslo from "../img/logo_wioslo.png";
+import logoWhite from "../Home/images/logoWhite.png";
 import HomeIcon from "@material-ui/icons/Home";
 import RowingIcon from "@material-ui/icons/Rowing";
 import MapIcon from "@material-ui/icons/Map";
@@ -26,7 +26,9 @@ import Button from "../AddNewOfferForm/Button";
 import Signup from "../LoginRegister/Signup";
 import Login from "../LoginRegister/Login";
 import Logout from "../LoginRegister/Logout";
+import AddBoxIcon from "@material-ui/icons/AddBox";
 import { useAuth } from "../contexts/AuthContext";
+import Profile from "../LoginRegister/Profile/Profile";
 
 function Nav({ children }) {
   const classes = navStyles();
@@ -46,56 +48,7 @@ function Nav({ children }) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar
-          style={{
-            backgroundColor: "rgb(0, 0, 0)",
-          }}
-        >
-          <IconButton
-            aria-label="open drawer"
-            style={{ color: "white" }}
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <div
-            style={{
-              display: "flex",
-              width: "100vw",
-              justifyContent: "flex-end",
-            }}
-          >
-            {!currentUser ? (
-              <>
-                <Signup />
-                <Login />
-              </>
-            ) : (
-              <>
-                <Button
-                  text="Dodaj ofertę"
-                  color="secondary"
-                  variant="contained"
-                  startIcon={<AddIcon />}
-                  className={classes.newButton}
-                  onClick={() => setOpenPopup(true)}
-                />
-                <Logout />
-              </>
-            )}
-          </div>
-        </Toolbar>
-      </AppBar>
+
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -110,14 +63,41 @@ function Nav({ children }) {
         }}
       >
         <div className={classes.toolbar}>
-          <img className={classes.logo} src={LogoWioslo} alt={"Wiosło"} />
-          <IconButton onClick={handleDrawerClose} className={classes.prawo}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon className={{ prawo: classes.prawo }} />
-            ) : (
-              <ChevronLeftIcon className={classes.prawo} />
+          {open ? (
+            <>
+              (
+              <img className={classes.logo} src={logoWhite} alt={"Wiosło"} />
+              <IconButton
+                onClick={handleDrawerClose}
+                edge="start"
+                style={{ color: "white" }}
+              >
+                <ChevronLeftIcon />
+              </IconButton>
+              )
+            </>
+          ) : (
+              <>
+                (
+              <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  style={{
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  className={clsx(classes.menuButton, {
+                    // [classes.hide]: open,
+                  })}
+                >
+                  <MenuIcon />
+                </IconButton>
+              )
+            </>
             )}
-          </IconButton>
         </div>
         <List className={classes.backgraundMenu}>
           <ListItem
@@ -125,19 +105,41 @@ function Nav({ children }) {
             component={Link}
             to="/home"
             className={classes.menuTextStyle}
+            style={{ marginTop: open ? "2px" : "18px" }}
           >
-            <ListItemIcon className={classes.menuTextStyle}>
-              <HomeIcon className={classes.menuTextStyle} />
+            <ListItemIcon
+              style={{ color: "white" }}
+              className={classes.menuTextStyle}
+            // style={{ marginTop: open ? "2px" : "18px" }}
+            >
+              <HomeIcon
+                className={classes.menuTextStyle}
+              // style={{ marginTop: open ? "2px" : "18px" }}
+              />
             </ListItemIcon>
-            <ListItemText primary={"Home"} />
+            <ListItemText primary={"Strona Główna"} />
           </ListItem>
-          {/*             
-            <ListItem button component = {Link} to = '/ulubione' className={classes.menuTextStyle}>
-              <ListItemIcon className={classes.menuTextStyle}>
-                <FavoriteIcon className={classes.menuTextStyle}/>
-              </ListItemIcon>
-              <ListItemText primary={'Ulubione'} />
-              </ListItem> */}
+          {!currentUser ? (
+            <>
+              <Login />
+              <Signup />
+            </>
+          ) : (
+              <>
+                <Profile />
+
+                <ListItem
+                  button
+                  onClick={() => setOpenPopup(true)}
+                  className={classes.menuTextStyle}
+                >
+                  <ListItemIcon className={classes.menuTextStyle}>
+                    <AddBoxIcon className={classes.menuTextStyle} />
+                  </ListItemIcon>
+                  <ListItemText primary={"Dodaj ofertę"} />
+                </ListItem>
+              </>
+            )}
 
           <ListItem
             button
@@ -162,6 +164,7 @@ function Nav({ children }) {
             </ListItemIcon>
             <ListItemText primary={"Mapa"} />
           </ListItem>
+          {currentUser && <Logout />}
         </List>
       </Drawer>
       {children}

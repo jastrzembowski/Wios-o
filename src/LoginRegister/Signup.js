@@ -4,7 +4,11 @@ import { Form, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Button } from "@material-ui/core";
 import {useHistory} from "react-router-dom"
-
+import { navStyles } from "../Navigacja/nav-styles"
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -15,6 +19,7 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
+  const classes = navStyles();
 
 
   const handleClickOpen = () => {
@@ -45,24 +50,29 @@ export default function Signup() {
   }
   return (
     <>
-      {message && <Alert variant="success">{message}</Alert>}
-      <Button
-        variant="contained"
-        size="large"
-        color="secondary"
-        onClick={handleClickOpen}
-        dividers
-        style={{ marginRight: "3px", backgroundColor: "white" }}
-      >
-        Rejestracja
-      </Button>
+   
+      <ListItem
+            button
+            className={classes.menuTextStyle}
+            onClick={handleClickOpen}
+
+          >
+            <ListItemIcon
+              style={{ color: "white" }}
+              className={classes.menuTextStyle}
+            >
+              <PersonAddIcon className={classes.menuTextStyle} />
+            </ListItemIcon>
+            <ListItemText primary={"Rejestracja"} />
+          </ListItem>
+
 
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <Card>
+        <Card style={{minWidth: "550px",minHeight: "400px"}}>
           <Card.Body>
             <h2 style={{ color: "black" }} className="text-center mb-4">
 REJESTRACJA            </h2>

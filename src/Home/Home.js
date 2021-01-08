@@ -1,100 +1,71 @@
-import React from "react";
-import BarChart from "./BarChart";
-import PieChart from "./PieChart";
-import ReactPlayer from "react-player/youtube";
-import homeImage from "./images/homeImage.jpg";
-import paddle from "./images/paddle.png";
-import { homeStyles } from "./Home-styles";
-import Carousel from "./carousel";
-import ScrollAnimation from "react-animate-on-scroll";
-import waterfall from "./images/waterfall.gif";
+import React, { Component } from "react";
+import bg1 from "./images/bg1.jpg";
+import bg2 from "./images/bg2.jpg";
+import bg3 from "./images/bg3.jpg";
+import bg4 from "./images/bg4.jpg";
 import Typography from "@material-ui/core/Typography";
-import logoWhite from "./images/logoWhite.png";
+import LoginHome from "../LoginRegister/LoginHome"
+import SignupHome from "../LoginRegister/SignupHome"
+import ButtonHolder from "../LoginRegister/ButtonHolder"
+export default class Home extends Component {
 
-export default function Home() {
-  const classes = homeStyles();
-  return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100%",
-          flexFlow: "column",
-          alignItems: "center",
-        }}
-      >
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      bgStyle: {
+        height: "100vh",
+
+        backgroundPosition: "right",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        paddingRight: "100%",
+      }
+    };
+  }
+
+  componentWillMount() {
+    const pictureArray = [bg1, bg2, bg3, bg4];
+    const randomIndex = Math.floor(Math.random() * pictureArray.length);
+    const selectedPicture = pictureArray[randomIndex];
+
+
+    this.setState({
+      bgStyle: {
+        background: `url(${selectedPicture})`,
+        height: "100vh",
+        display: "flex",
+        flexFlow: "column",
+        justifyContent: "center",
+        alignContent: "center",
+        backgroundPosition: "right",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        paddingRight: "100%",
+      }
+    });
+  }
+
+  render() {
+    return (
+      <div style={this.state.bgStyle} className="bg">
         <div
+          className="row"
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            flexFlow: "row",
+            justifyContent: "center",
+            marginLeft: "25vw",
+            width: "45vw",
           }}
         >
-          <div>
-            <img
-              src={logoWhite}
-              style={{
-                position: "absolute",
-                top: "40%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                zIndex: 1,
-              }}
-            />
-
-            <img
-              src={waterfall}
-              // className={classes.homeImage}
-              alt={"homeImage"}
-              width="100%"
-              height="50%"
-              style={{
-                position: "relative",
-                boxShadow:
-                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                left: "0px",
-              }}
-            />
-          </div>
-        </div>
-        <div
-          className="ChartsHolder"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: "-300px",
-          }}
-        >
-          <div
-            className="playerContainer"
-            style={{ display: "flex", width: "500px" }}
+          <h1 style={{fontFamily: 'Anton', fontSize:'90px', color: 'white'}} 
           >
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=TAEkR13ChPs"
-              stopOnUnmount={false}
-              playing="false"
-              width="100%"
-              height="20em"
-              style={{
-                display: "flex",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "200px",
-            }}
-          >
-            <PieChart />
-          </div>
-        </div>
-        <div style={{ display: "flex", marginTop: "20px" }}>
-          <Carousel />
-          <BarChart />
+            ROZPOCZNIJ PRZYGODĘ
+          </h1><br/>
+          <ButtonHolder/>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

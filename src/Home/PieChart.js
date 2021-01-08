@@ -46,8 +46,7 @@ export default class PieChart extends Component {
     let dataRatings = this.labels.map((rate) => {
     
       return this.state.ratings.filter((element) => {
-        console.log(rate)
-        console.log(element.rate)
+  
         return element.rate == rate;
       }).length;
     });

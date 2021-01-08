@@ -1,5 +1,4 @@
 import React from "react";
-import { offers } from "./OffersList";
 import OfferCard from "./OfferCard";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -12,15 +11,31 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RangeSlider from "./DifficultySliderbar";
 import "./offers.css"; 
+const DATABASE_URL = "https://wioslo-default-rtdb.firebaseio.com/";
 
 export default class Cards extends React.Component {
   state = {
-    offers: offers,
+    offers: [],
     sorter: undefined,
     sortDirection: "",
     name: "",
     level: ['łatwy', 'średni', 'trudny'],
     levelSortDirection: "",
+  };
+
+  componentDidMount() {
+    fetch(`${DATABASE_URL}/offers.json`)
+    .then(response => response.json())
+    .then(data => {
+        const formattedData = Object.keys(data)
+    .map(key => ({
+      id: key,
+      ...data[key]
+    }));
+    this.setState({
+      offers: formattedData
+    })
+    })
   };
 
   handleChange = (event, newValue) => {

@@ -2,12 +2,17 @@ import React, {useState} from "react";
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-
+import { navStyles } from "../Navigacja/nav-styles"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 export default function Logout() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
   const [message, setMessage] = useState("")
+  const classes = navStyles();
 
   async function handleLogout() {
 
@@ -23,16 +28,23 @@ export default function Logout() {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        size="large"
-        color="secondary"
-        onClick={()=> handleLogout()}
-        dividers
-        style={{ marginRight: "3px", marginLeft: "3px", backgroundColor: "white" }}
-      >
-        Wyloguj się
-      </Button>
+  
+      <ListItem
+            button
+            className={classes.menuTextStyle}
+            onClick={()=> handleLogout()}
+
+          >
+            <ListItemIcon
+              style={{ color: "white" }}
+              className={classes.menuTextStyle}
+            >
+              <ExitToAppIcon className={classes.menuTextStyle} />
+            </ListItemIcon>
+            <ListItemText primary={"Wyloguj się"} />
+          </ListItem>
+
+
     </div>
   );
 }
