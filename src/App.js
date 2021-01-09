@@ -4,8 +4,6 @@ import Nav from "./Navigacja/Nav";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { AuthProvider } from "./contexts/AuthContext";
-import {Provider} from 'react-redux'
-import store from './Redux/store'
 
 
 const theme = createMuiTheme({
@@ -49,7 +47,7 @@ function App() {
 
 
   return (
-    <Provider store={store}>
+
     <AuthProvider>
       <MuiThemeProvider theme={theme}>
         <Nav>
@@ -57,7 +55,6 @@ function App() {
         </Nav>
       </MuiThemeProvider>
     </AuthProvider>
-    </Provider>
   );
 }
 

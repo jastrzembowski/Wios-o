@@ -10,14 +10,14 @@ import { useStyles } from "./OfferStyles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-        light: '#ffffff',
-        main: '#ffffff',
-        dark: '#ffffff',
+        light: '#C1CCD6',
+        main: '#C1CCD6',
+        dark: '#C1CCD6',
     },
     secondary: {
-        light: '#ffffff',
-        main: '#ffffff',
-        dark: '#ffffff',
+        light: '#C1CCD6',
+        main: '#C1CCD6',
+        dark: '#C1CCD6',
     },
   contrastThreshold: 3,
   tonalOffset: 0.2,
@@ -31,7 +31,7 @@ export default function Popup(props) {
       <Dialog open={openPopup} maxWidth="xl">
         <DialogTitle>
           <div style={{ display: "flex" }}>
-            <Typography variant="h5" component="div" style={{ flexGrow: 1 }}>
+            <Typography variant="h5" component="div" style={{fontFamily: 'Anton', flexGrow: 1 }}>
               Dodaj swoją ofertę
             </Typography>
 

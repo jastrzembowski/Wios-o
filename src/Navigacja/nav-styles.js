@@ -3,7 +3,7 @@ import HomeImageBackgraund from '../img/app_5.jpg';
 
 const drawerWidth = 220;
 
-export const navStyles = makeStyles((theme) => ({
+export const navStyles = makeStyles((theme) => ({ 
   
     root: {
       display: 'flex',

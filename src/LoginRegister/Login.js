@@ -21,6 +21,7 @@ export default function Login() {
   const [openPassword, setOpenPassword] = React.useState(false)
   const [message, setMessage] = useState("");
   const history = useHistory();
+
   const classes = navStyles();
 
   const handleClickOpen = () => {
@@ -98,7 +99,7 @@ export default function Login() {
       >
         <Card style={{minWidth: "550px",minHeight: "300px"}}>
           <Card.Body>
-            <h2 style={{ color: "black" }} className="text-center mb-4">
+            <h2 style={{ color: "black", fontFamily: 'Anton' }} className="text-center mb-4">
               LOGOWANIE
             </h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -115,7 +116,7 @@ export default function Login() {
                 disabled={loading}
                 variant="contained"
                 size="large"
-                style={{ backgroundColor: "rgb(0,0,0)", color: "white" }}
+                style={{  backgroundColor: "#151818", color: "white" }}
                 className="w-100"
                 type="submit"
               >

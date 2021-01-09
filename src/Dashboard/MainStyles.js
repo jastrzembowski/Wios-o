@@ -19,7 +19,7 @@ export const mainStyles = makeStyles((theme) => ({
     flexGrow: 1,
     minHeight: "96vh",
     width: "80vw",
-    background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(210,250,250,1) 100%)'
+    background: 'linear-gradient(355deg, rgba(255,255,255,0.8575805322128851) 3%, rgba(210,245,255,1) 54%, rgba(227,244,255,1) 100%)'
     
   },
 

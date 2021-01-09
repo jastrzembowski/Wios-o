@@ -70,7 +70,7 @@ export default function Signup() {
       >
         <Card style={{ minWidth: "550px", minHeight: "400px" }}>
           <Card.Body>
-            <h2 style={{ color: "black" }} className="text-center mb-4">
+            <h2 style={{ color: "#151818", fontFamily: 'Anton' }} className="text-center mb-4">
               REJESTRACJA{" "}
             </h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -95,7 +95,7 @@ export default function Signup() {
                 disabled={loading}
                 variant="contained"
                 size="large"
-                style={{ backgroundColor: "rgb(0,0,0)", color: "white" }}
+                style={{ backgroundColor: "#151818", color: "white" }}
                 className="w-100"
                 type="submit"
               >

@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RangeSlider from "./DifficultySliderbar";
-import "./offers.css"; 
+import "./offers.css";
 const DATABASE_URL = "https://wioslo-default-rtdb.firebaseio.com/";
 
 export default class Cards extends React.Component {
@@ -19,59 +19,58 @@ export default class Cards extends React.Component {
     sorter: undefined,
     sortDirection: "",
     name: "",
-    level: ['łatwy', 'średni', 'trudny'],
+    level: ["łatwy", "średni", "trudny"],
     levelSortDirection: "",
   };
+  
 
   componentDidMount() {
     fetch(`${DATABASE_URL}/offers.json`)
-    .then(response => response.json())
-    .then(data => {
-        const formattedData = Object.keys(data)
-    .map(key => ({
-      id: key,
-      ...data[key]
-    }));
-    this.setState({
-      offers: formattedData
-    })
-    })
-  };
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+        this.setState({
+          offers: formattedData,
+        });
+      });
+  }
 
   handleChange = (event, newValue) => {
-
-      let newValueStringify = JSON.stringify(newValue);
-      if(newValueStringify === JSON.stringify([1,5])){
-        this.setState({
-          level: ['łatwy', 'średni', 'trudny'],
-        });
-      }
-      if(newValueStringify === JSON.stringify([3,5])){
-        this.setState({
-          level: ['średni', 'trudny'],
-        }); 
-      }
-      if(newValueStringify === JSON.stringify([5,5])){
-        this.setState({
-          level: ['trudny'],
-        });
-      }
-      if(newValueStringify === JSON.stringify([1,3])){
-        this.setState({
-          level: ['łatwy', 'średni'],
-        });
-      }
-      if(newValueStringify === JSON.stringify([3,3])){
-        this.setState({
-          level: ['średni'],
-        });
-      }
-      if(newValueStringify === JSON.stringify([1,1])){
-        this.setState({
-          level: ['łatwy'],
-        });
-      }
+    let newValueStringify = JSON.stringify(newValue);
+    if (newValueStringify === JSON.stringify([1, 5])) {
+      this.setState({
+        level: ["łatwy", "średni", "trudny"],
+      });
     }
+    if (newValueStringify === JSON.stringify([3, 5])) {
+      this.setState({
+        level: ["średni", "trudny"],
+      });
+    }
+    if (newValueStringify === JSON.stringify([5, 5])) {
+      this.setState({
+        level: ["trudny"],
+      });
+    }
+    if (newValueStringify === JSON.stringify([1, 3])) {
+      this.setState({
+        level: ["łatwy", "średni"],
+      });
+    }
+    if (newValueStringify === JSON.stringify([3, 3])) {
+      this.setState({
+        level: ["średni"],
+      });
+    }
+    if (newValueStringify === JSON.stringify([1, 1])) {
+      this.setState({
+        level: ["łatwy"],
+      });
+    }
+  };
 
   sortByName = () => {
     if (this.state.sortDirection === "alphabetically") {
@@ -107,69 +106,88 @@ export default class Cards extends React.Component {
     });
   };
 
-
   render() {
     return (
       <>
-      <div className='background-coloring-div'>
-        <div className="offers-navigation-bar">
-          <TextField
-            label="Filtruj po nazwie"
-            value={this.state.name}
-            onChange={(name) => {
-              this.handleNameChange(name);
-            }}
-            variant="filled"
-            style={{ gridArea: "filterInput" }}
-          />
-          <RangeSlider
-            handleChange={this.handleChange}
-            style={{ 
-              gridArea: "slider" ,
+        <div className="background-coloring-div">
+          <div className="offers-navigation-bar">
+            <TextField
+              label="Filtruj po nazwie"
+              value={this.state.name}
+              onChange={(name) => {
+                this.handleNameChange(name);
+              }}
+              InputLabelProps={{
+                style: { color: "white" }, 
              }}
-          />
-          <Button
-            variant="contained"
-            color="secondary.light"
-            style={{
-              gridArea: "sortByName",
-            }}
-            onClick={this.sortByName}
-          >
-            {this.state.sortDirection === "alphabetically" ? (
-              <FontAwesomeIcon icon={faSortAlphaDown} />
-            ) : (
-              <FontAwesomeIcon icon={faSortAlphaUp} />
-            )}
-            Sortuj według nazwy
-          </Button>
+             InputProps={{
+               style: { color: "white"}
+             }}
+              variant="filled"
+              style={{
+                gridArea: "filterInput",
+                backgroundColor: "#151818",
+                color: "white",
+              }}
+            />
+            <RangeSlider
+              handleChange={this.handleChange}
+              style={{
+                gridArea: "slider",
+              }}
+            />
+            <Button
+              variant="contained"
+              color="secondary.light"
+              style={{
+                gridArea: "sortByName",
+                backgroundColor: "#151818",
+                color: "white",
+                padding: "15px",
+                textTransform: "none",
+                borderRadius: "0px",
+                
+              }}
+              onClick={this.sortByName}
+            >
+              {this.state.sortDirection === "alphabetically" ? (
+                <FontAwesomeIcon icon={faSortAlphaDown} />
+              ) : (
+                <FontAwesomeIcon icon={faSortAlphaUp} />
+              )}
+              Sortuj według nazwy
+            </Button>
 
-          <Button
-            variant="contained"
-            style={{
-              gridArea: "sortByLevel",
-            }}
-            onClick={this.sortByLevel}
-          >
-            {this.state.levelSortDirection === "fromLowToHigh" ? (
-              <FontAwesomeIcon icon={faSortAmountDownAlt} />
-            ) : (
-              <FontAwesomeIcon icon={faSortAmountUp} />
-            )}
-            Sortuj według trudności
-          </Button>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#151818",
+               padding: "15px",
+                color: "white",
+                gridArea: "sortByLevel",
+                textTransform: "none",
+                borderRadius: "0px"
+              }}
+              onClick={this.sortByLevel}
+            >
+              {this.state.levelSortDirection === "fromLowToHigh" ? (
+                <FontAwesomeIcon icon={faSortAmountDownAlt} />
+              ) : (
+                <FontAwesomeIcon icon={faSortAmountUp} />
+              )}
+              Sortuj według trudności
+            </Button>
+          </div>
         </div>
-      </div>
-        <div className='offers-dashboard'
-          style={{
-           
-          }}
-        >
+        <div className="offers-dashboard" style={{}}>
           {this.state.offers
             .sort(this.state.sorter)
             .filter((offer) => offer.title.includes(this.state.name))
-            .filter((offer) => {if(this.state.level.includes(offer.level))
-              {return offer}}) 
+            .filter((offer) => {
+              if (this.state.level.includes(offer.level)) {
+                return offer;
+              }
+            })
             .map((offer) => (
               <OfferCard offer={offer} />
             ))}

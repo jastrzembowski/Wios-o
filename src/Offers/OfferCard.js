@@ -80,15 +80,17 @@ export default function OfferCard(props) {
           maxWidth: '360px',
         }}
       >
-        <CardContent>
+        <CardContent style={{      height: "70%",}}>
           <h2
             className="title"
             style={{
               fontSize: '25px',
               marginTop: "-2px",
               lineHeight: '20px',
+        
               textAlign: "center",
               marginBottom: "25px",
+              fontFamily: 'Anton'
             }}
           >
             {props.offer.title}
@@ -108,6 +110,14 @@ export default function OfferCard(props) {
           </div>
         </CardContent>
         <CardActions className="cardActions" style={{ display: "grid" }}>
+          <div style={{
+            height: "100%",
+            display: "flex",
+            flexFlow: "column",
+            justifyContent: "center",
+            paddingTop: "16px"
+
+          }}>
           <Button
             text="Zobacz więcej!"
             variant="contained"
@@ -115,8 +125,11 @@ export default function OfferCard(props) {
             onClick={handleClickOpen}
             style={{
               marginBottom: '5px',
+              backgroundColor: "#151818",
+              color: 'white'
             }}
           />
+          </div>
           <Dialog
             open={open}
             TransitionComponent={Transition}
@@ -128,6 +141,7 @@ export default function OfferCard(props) {
             <DialogTitle id="alert-dialog-slide-title">
               <h1
                 style={{
+                  fontFamily: 'Anton',
                   textAlign: "center",
                   marginTop: "3px",
                   marginBottom: "0px",
@@ -179,6 +193,8 @@ export default function OfferCard(props) {
                 style={{
                   width: "200px",
                   height: "50px",
+                  backgroundColor: "#151818",
+                  color: "white"
                 }}
               />
               <Button
@@ -189,6 +205,8 @@ export default function OfferCard(props) {
                 style={{
                   width: "100px",
                   height: "50px",
+                  backgroundColor: "#151818",
+                  color: 'white'
                 }}
               />
             </DialogActions>

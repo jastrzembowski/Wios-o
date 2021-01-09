@@ -15,6 +15,8 @@ export default function ButtonHolder() {
             <SignupHome />
           </>
         ) : (
+          <>
+          <h1>{currentUser.displayName}</h1>
           <Button 
           style={{
             width: "450px",
@@ -28,6 +30,7 @@ export default function ButtonHolder() {
             marginRight: "10px"
         }} component={Link} to="/kayak">
             Sprawdź najnowsze oferty </Button>
+            </>
         )}
       </>
     </div>

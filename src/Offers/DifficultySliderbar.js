@@ -26,7 +26,7 @@ export default function RangeSlider({handleChange}) {
       textAlign: "center",
     }}
     >
-      <Typography id="range-slider" gutterBottom>
+      <Typography id="range-slider" style={{color:"#151818"}} gutterBottom>
         Poziom trudności
       </Typography>
       <Slider
@@ -38,6 +38,9 @@ export default function RangeSlider({handleChange}) {
         step={2}
         min={1}
         max={5}
+        style={{
+          color:"#151818"
+        }}
       />
     </div>
   );

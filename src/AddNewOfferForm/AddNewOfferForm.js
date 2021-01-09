@@ -344,7 +344,7 @@ export default class AddNewOfferForm extends React.Component {
               width: "100px",
               margin: "3px",
               color: "rgb(255, 255, 255)",
-              backgroundColor: "rgb(15, 4, 35)",
+              backgroundColor: "#151818",
             }}
             onClick={this.handleOnSubmit}
           />
@@ -357,7 +357,7 @@ export default class AddNewOfferForm extends React.Component {
               width: "100px",
               margin: "3px",
               color: "rgb(255, 255, 255)",
-              backgroundColor: "rgb(15, 4, 35)",
+              backgroundColor: "#151818",
             }}
             onClick={this.handleFormReset}
           />
